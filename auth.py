@@ -1,10 +1,8 @@
-import os
 from netmiko import ConnectHandler
 from netmiko.exceptions import NetMikoAuthenticationException, NetMikoTimeoutException
 from functions import *
 from log import *
 import socket
-import logging
 
 username = ""
 execPrivPassword = ""

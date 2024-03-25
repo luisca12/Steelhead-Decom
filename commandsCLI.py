@@ -43,8 +43,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 shWCCP2out = sshAccess.send_command(shWCCP2)
                 authLog.info(f"Automation ran the command \"{shWCCP2}\" into the device {validDeviceIP} successfully")
                 with open(f"{validDeviceIP}_Outputs.txt", "a") as file:
-                    file.write(f"User {username} connected to device IP {validDeviceIP}")
-                    file.write(f"Outputs for {validDeviceIP}:\n")
+                    file.write(f"User {username} connected to device IP {validDeviceIP}, ")
                     file.write(f"{shWCCP}:\n{shWCCPout}\n")
                     file.write(f"{shWCCP1}:\n{shWCCP1out}\n")
                     file.write(f"{shWCCP2}:\n{shWCCP2out}\n")            
