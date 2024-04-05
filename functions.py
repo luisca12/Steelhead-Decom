@@ -20,3 +20,12 @@ def validateIP(deviceIP):
         authLog.info(f"IP successfully validated {deviceIP}")
         return all(0 <= int(num) <= 255 for num in deviceIP.split('.'))
     return False
+                
+def delStringFromFile(filePath, stringToDel):
+    with open(filePath, "r") as file:
+        file_content = file.read()
+
+    updated_content = file_content.replace(stringToDel, "")
+
+    with open(filePath, "w") as file:
+        file.write(updated_content)
