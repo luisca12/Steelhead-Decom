@@ -10,7 +10,6 @@ def main():
     validIPs, username, netDevice = Auth()
 
     while True:
-        print("* Only numbers are accepted *")
         menuString(validIPs, username), print("\n")
         selection = input("Please choose the option that you want: ")
         if checkIsDigit(selection):

@@ -139,7 +139,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                     file.write("   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700\n")
                     file.write('\t\t\t\t\t\t\tSteelhead MAC Address: 000e.b6\n')
                     file.write('  ========================================================================================\n')
-                    if shWCCP4out == '':
+                    if "1700" not in shWCCP4out and "000e.b6" not in shWCCP4out:
                         file.write("\nThere are no physical interfaces in VLAN 1700 nor any steelhead device connected")
                     else:
                         file.write(f"{shWCCP4out}\n\n")
@@ -152,6 +152,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                         file.write('  ====================================================\n')
                         file.write('   Below is the final configuration of the interfaces\n')
                         file.write('  ====================================================\n')
+                        file.write("NOTE: If this is empty, no physical interfaces will be modified.\n\n")
                         for interface in matchMAC:
                             defaultIntCmd = f"{defaultInt}{interface}"
                             file.write(f"{defaultIntCmd}\n")

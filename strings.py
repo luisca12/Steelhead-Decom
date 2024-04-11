@@ -12,6 +12,7 @@ def menuString(deviceIP, username):
         print("Connected to:", deviceIP, "as", username)
         print('\n  -------------------------------------------------------------- ')
         print('\t\tMenu - Please choose an option ')
+        print('\t\t  Only numbers are accepted')
         print('  -------------------------------------------------------------- ')
         print('>\t     1. To take the following show commands:           <')
         print('\t  show run | i wccp, show run | i wccp|interface\t')
