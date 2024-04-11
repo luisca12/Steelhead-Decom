@@ -120,11 +120,11 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                     file.write('   Make sure the ACCL are factory default before starting this part\n')
                     file.write('  ==================================================================\n')
                     file.write("SSH to the Core SW: \n\n")
-                    shWCCPout1 = shWCCPout.replace('ip', 'no ip')
-                    shWCCPout1 = shWCCPout1.replace('ip wccp 51 redirect in', '')
+                    shWCCPout1 = shWCCPout.replace('ip wccp 51 redirect in', '')
                     shWCCPout1 = shWCCPout1.replace('ip wccp 52 redirect in', '')
+                    shWCCPout1 = shWCCPout1.replace('ip', 'no ip')
                     shWCCP1out1 = shWCCP1out.replace('ip', 'no ip')
-                    shWCCP2out1 = shWCCP2out.replace('ip', 'no ip')
+                    shWCCP2out1 = shWCCP2out.replace('ip address', 'no ip address')
                     file.write(f"{shWCCPout1}\n\n")
                     file.write(f"{shWCCP1out1}\n\n")
                     file.write(f"{shWCCP2out1}\n")
@@ -137,26 +137,29 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                     file.write("no interface 1700\n\n")
                     file.write('  ========================================================================================\n')
                     file.write("   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700\n")
-                    file.write('\t\t\t\tSteelhead MAC Address: 000e.b6\n')
+                    file.write('\t\t\t\t\t\t\tSteelhead MAC Address: 000e.b6\n')
                     file.write('  ========================================================================================\n')
-                    file.write(f"{shWCCP4out}\n\n")
+                    if shWCCP4out == '':
+                        file.write("\nThere are no physical interfaces in VLAN 1700 nor any steelhead device connected")
+                    else:
+                        file.write(f"{shWCCP4out}\n\n")
 
-                    for interface in matchMAC:
-                        shIntCmd = f"{shInt}{interface}"
-                        matchMACout = sshAccess.send_command(shIntCmd) 
-                        matchMACout = shRunIntCmd(matchMACout)  
-                        file.write(f"{matchMACout}\n")
-                    file.write('  ====================================================\n')
-                    file.write('   Below is the final configuration of the interfaces\n')
-                    file.write('  ====================================================\n')
-                    for interface in matchMAC:
-                        defaultIntCmd = f"{defaultInt}{interface}"
-                        file.write(f"{defaultIntCmd}\n")
-                        file.write(f"interface {interface}\n")
-                        file.write("description unusedPort\n")
-                        file.write("switchport mode access\n")
-                        file.write("switchport access vlan 1001\n")
-                        file.write("shutdown\n")
+                        for interface in matchMAC:
+                            shIntCmd = f"{shInt}{interface}"
+                            matchMACout = sshAccess.send_command(shIntCmd) 
+                            matchMACout = shRunIntCmd(matchMACout)  
+                            file.write(f"{matchMACout}\n")
+                        file.write('  ====================================================\n')
+                        file.write('   Below is the final configuration of the interfaces\n')
+                        file.write('  ====================================================\n')
+                        for interface in matchMAC:
+                            defaultIntCmd = f"{defaultInt}{interface}"
+                            file.write(f"{defaultIntCmd}\n")
+                            file.write(f"interface {interface}\n")
+                            file.write("description unusedPort\n")
+                            file.write("switchport mode access\n")
+                            file.write("switchport access vlan 1001\n")
+                            file.write("shutdown\n")
 
     except Exception as error:
         print(f"An error occurred: {error}")
