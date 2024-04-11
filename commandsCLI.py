@@ -18,6 +18,7 @@ shWCCP4 = "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6"
 
 intPatt = r'\b(?:Et|Gi|Te)\d+\/\d+(?:\/\d+)?(?:-\d+)?(?:, (?:Et|Gi|Te)\d\/\d+(?:\/\d+)?(?:-\d+)?)*\b'
 buildConfigPatt = r"Building configuration\.\.\.\n\nCurrent configuration : \d+ bytes\n!"
+shWCCP1Patt = r"interface [a-zA-Z0-9\/]+[\r\n\s]+ip wccp \d+ redirect in"
 
 defaultInt = "default interface "
 
@@ -75,6 +76,9 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 shWCCP4out = sshAccess.send_command(shWCCP4)
                 shWCCP4out = shRunIntCmd(shWCCP4out)
                 authLog.info(f"Automation ran the command \"{shWCCP4}\" into the device {validDeviceIP} successfully")
+
+                shWCCP1outPatt = re.finditer(shWCCP1Patt, shWCCP1out)
+                shWCCP1out = '\n'.join(match.group(0) for match in shWCCP1outPatt)
 
                 matchIPv4 = re.search(r'(\b(?!255\.)\d{1,3}\.\d{1,3}\.\d{1,3}\.)\d{1,3}\b', shWCCP3out)
 

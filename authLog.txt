@@ -1,0 +1,422 @@
+2024-04-05 11:03:15,175 - INFO - IP successfully validated 192.168.0.22
+2024-04-05 11:03:15,176 - INFO - Device 192.168.0.22 is reachable on port TCP 22.
+2024-04-05 11:03:19,697 - INFO - Successful login - remote device IP: 192.168.0.22, Username: luis
+2024-04-05 11:03:22,828 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:03:23,640 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.22 successfully
+2024-04-05 11:03:23,795 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.22 successfully
+2024-04-05 11:03:23,959 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.22 successfully
+2024-04-05 11:03:24,154 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.22 successfully
+2024-04-05 11:03:24,380 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.22 successfully
+2024-04-05 11:03:24,381 - ERROR - No IP address found by variable "matchIPv4" from the command show run interface vlan1700 | inc ip add, string found: None
+2024-04-05 11:03:24,575 - INFO - Automation ran the command "show run | inc router bgp | No IP address found" into the device 192.168.0.22 successfully, output of the command:
+
+2024-04-05 11:03:24,575 - INFO - Successfully removed "ip address" from the previous output, new output:
+
+2024-04-05 11:03:49,517 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-05 11:03:49,517 - INFO - User luis logged out from the program.
+2024-04-05 11:04:11,446 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:04:11,448 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:04:15,792 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:04:16,337 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:04:17,093 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:04:17,247 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:04:17,391 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:04:17,575 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:04:17,790 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:04:17,790 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:04:17,965 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+ip dhcp excluded-address 8.8.8.8
+ network 8.8.8.0 255.255.255.0
+ default-router 8.8.8.8 
+ ip address 8.8.8.8 255.255.255.0
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:04:17,965 - INFO - Successfully removed "ip address" from the previous output, new output:
+ip dhcp excluded-address 8.8.8.8
+ network 8.8.8.0 255.255.255.0
+ default-router 8.8.8.8 
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:05:17,675 - ERROR - User  input the following invalid IP: 1
+2024-04-05 11:05:20,423 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:05:20,424 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:05:25,876 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:05:26,422 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:05:27,200 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:05:27,363 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:05:27,515 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:05:27,709 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:05:27,954 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:05:27,954 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:05:28,128 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+ip dhcp excluded-address 8.8.8.8
+ network 8.8.8.0 255.255.255.0
+ default-router 8.8.8.8 
+ ip address 8.8.8.8 255.255.255.0
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:05:28,128 - INFO - Successfully removed "ip address" from the previous output, new output:
+ip dhcp excluded-address 8.8.8.8
+ network 8.8.8.0 255.255.255.0
+ default-router 8.8.8.8 
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:11:22,734 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:11:22,745 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:11:26,154 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:11:27,315 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:11:28,076 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:11:28,242 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:11:28,376 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:11:28,562 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:11:28,791 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:11:28,791 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:11:28,967 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:11:28,967 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:12:18,127 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-05 11:12:18,127 - INFO - User luis logged out from the program.
+2024-04-05 11:12:22,982 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:12:22,984 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:25:08,666 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:25:08,667 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:25:12,989 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:25:13,974 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:25:14,685 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:25:14,840 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:25:14,983 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:25:15,168 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:25:15,394 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:25:15,394 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:25:15,558 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:25:15,558 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:29:34,722 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:29:34,724 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:29:46,576 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:29:51,238 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:29:52,585 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:29:53,288 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:29:53,442 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:29:53,597 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:29:53,783 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:29:54,008 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:29:54,008 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:29:54,173 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:29:54,173 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:31:36,551 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:31:36,551 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:31:43,047 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:31:43,856 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:31:44,563 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:31:44,716 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:31:44,869 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:31:45,053 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:31:45,277 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:31:45,277 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:31:45,431 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:31:45,431 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:46:44,428 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:46:44,429 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:46:48,020 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:46:49,025 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:46:49,815 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:46:49,966 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:46:50,119 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:46:50,303 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:46:50,521 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:46:50,521 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:46:50,695 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:46:50,695 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:50:25,030 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:50:25,032 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:50:28,633 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:50:29,510 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:50:30,233 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:50:30,389 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:50:30,543 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:50:30,730 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:50:30,957 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:50:30,957 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:50:31,123 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:50:31,123 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:51:59,751 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:51:59,752 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:52:02,832 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:52:14,960 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:52:15,726 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:52:15,882 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:52:16,038 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:52:16,224 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:52:16,452 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:52:16,452 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:52:16,629 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:52:16,629 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:53:46,103 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 11:53:46,105 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 11:53:50,196 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 11:53:54,706 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 11:53:55,462 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 11:53:55,649 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 11:53:55,815 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 11:53:56,001 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 11:53:56,228 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 11:53:56,228 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 11:53:56,404 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 11:53:56,404 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:13:38,263 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:13:38,266 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:13:41,452 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:13:42,267 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:13:43,005 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:13:43,160 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:13:43,313 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:13:43,488 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:13:43,713 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:13:43,713 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:13:43,889 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:13:43,889 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:14:54,506 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:14:54,508 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:14:59,167 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:14:59,868 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:15:00,654 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:15:00,809 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:15:00,964 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:15:01,161 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:15:01,378 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:15:01,378 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:15:01,553 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:15:01,553 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:18:12,560 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:18:12,561 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:18:14,523 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:18:15,007 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:18:15,729 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:18:15,873 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:18:16,018 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:18:16,183 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:18:16,409 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:18:16,409 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:18:16,583 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:18:16,583 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:22:09,734 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:22:09,736 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:22:14,252 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:22:19,147 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:22:23,960 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:22:25,245 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:22:25,992 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:22:26,135 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:22:26,290 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:22:26,485 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:22:26,701 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:22:26,701 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:22:26,887 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:22:26,887 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:29:19,558 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:29:19,560 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:29:25,672 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:29:29,919 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:29:30,808 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:29:31,533 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:30:16,718 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:30:16,874 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:30:17,039 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:30:17,245 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:30:17,245 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:30:21,911 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:30:21,911 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:30:24,755 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:30:25,624 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:30:26,397 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:30:26,540 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:30:32,019 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:30:32,216 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:30:32,433 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:30:32,433 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:30:32,606 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:30:32,606 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:32:20,641 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:32:20,642 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:32:25,068 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:32:28,834 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:32:29,765 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:32:30,539 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:32:30,693 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:32:30,846 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:32:31,039 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:32:31,273 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:32:31,273 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:32:31,448 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:32:31,448 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:39:07,321 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:39:07,321 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:39:13,693 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:39:14,323 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:39:15,090 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:39:15,244 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:39:15,397 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:39:15,582 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:39:15,798 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:39:15,798 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:39:16,024 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:39:16,024 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:40:22,553 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:40:22,554 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:40:29,267 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:40:29,915 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:40:30,672 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:40:30,817 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:40:30,971 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:40:31,147 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:40:31,352 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:40:31,352 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:40:31,516 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:40:31,516 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:41:31,050 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:41:31,051 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:41:34,554 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:41:39,386 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:41:40,118 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:41:40,271 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:41:40,424 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:41:40,619 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:41:40,825 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:41:40,825 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:41:40,979 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:41:40,979 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:55:34,815 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:55:34,815 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:55:38,890 - ERROR - Failed to authenticate - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:55:42,614 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:55:43,338 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:55:44,112 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:55:44,266 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:55:44,420 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:55:44,594 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:55:44,810 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:55:44,810 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:55:44,975 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:55:44,975 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:56:59,256 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:56:59,258 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:57:04,441 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:57:07,011 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:57:07,750 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:57:07,895 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:57:08,049 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:57:08,224 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:57:08,429 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:57:08,429 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:57:08,594 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:57:08,594 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:57:53,859 - INFO - IP successfully validated 192.168.0.21
+2024-04-05 12:57:53,861 - INFO - Device 192.168.0.21 is reachable on port TCP 22.
+2024-04-05 12:57:58,576 - INFO - Successful login - remote device IP: 192.168.0.21, Username: luis
+2024-04-05 12:57:59,080 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-05 12:57:59,819 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.21 successfully
+2024-04-05 12:57:59,953 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.21 successfully
+2024-04-05 12:58:00,107 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.21 successfully
+2024-04-05 12:58:00,293 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.21 successfully
+2024-04-05 12:58:00,519 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.21 successfully
+2024-04-05 12:58:00,519 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-05 12:58:00,682 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.21 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-05 12:58:00,682 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-10 11:28:34,741 - INFO - IP successfully validated 192.168.0.20
+2024-04-10 11:28:34,752 - INFO - Device 192.168.0.20 is reachable on port TCP 22.
+2024-04-10 11:28:43,736 - INFO - Successful login - remote device IP: 192.168.0.20, Username: luis
+2024-04-10 11:29:04,743 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-10 11:29:05,459 - INFO - Automation ran the command "show run | i ip wccp" into the device 192.168.0.20 successfully
+2024-04-10 11:29:05,603 - INFO - Automation ran the command "show run | i wccp|interface" into the device 192.168.0.20 successfully
+2024-04-10 11:29:05,746 - INFO - Automation ran the command "show run interface vlan1700" into the device 192.168.0.20 successfully
+2024-04-10 11:29:05,921 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 192.168.0.20 successfully
+2024-04-10 11:29:06,126 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 192.168.0.20 successfully
+2024-04-10 11:29:06,126 - INFO - Succesfully found IP address: 8.8.8.*
+2024-04-10 11:29:06,280 - INFO - Automation ran the command "show run | inc router bgp | 8.8.8.*" into the device 192.168.0.20 successfully, output of the command:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-10 11:29:06,280 - INFO - Successfully removed "ip address" from the previous output, new output:
+router bgp 1
+ network 8.8.8.0 mask 255.255.255.0
+2024-04-10 11:29:50,467 - INFO - IP successfully validated 192.168.0.20
+2024-04-10 11:29:50,469 - INFO - Device 192.168.0.20 is reachable on port TCP 22.
+2024-04-10 11:29:54,099 - INFO - Successful login - remote device IP: 192.168.0.20, Username: luis

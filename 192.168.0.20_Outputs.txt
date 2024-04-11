@@ -1,0 +1,77 @@
+User luis connected to device IP 192.168.0.20
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+SW1#show run | i ip wccp
+ip wccp source-interface Loopback0
+
+SW1#show run | i wccp|interface
+ip wccp source-interface Loopback0
+interface Loopback0
+ description wccp source int
+interface Ethernet0/0
+interface Ethernet0/1
+interface Ethernet0/2
+interface Ethernet0/3
+interface Ethernet1/0
+interface Ethernet1/1
+interface Ethernet1/2
+interface Ethernet1/3
+interface Ethernet2/0
+interface Ethernet2/1
+interface Ethernet2/2
+interface Ethernet2/3
+interface Ethernet3/0
+interface Ethernet3/1
+interface Ethernet3/2
+interface Ethernet3/3
+interface Vlan1
+interface Vlan1001
+interface Vlan1700
+
+SW1#show run interface vlan1700
+interface Vlan1700
+ ip address 8.8.8.8 255.255.255.0
+end
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear {open gear IP}:
+	{steelhead-Hostname}    {steelhead-IP}
+	{steelhead-Hostname}    {steelhead-IP}
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp source-interface Loopback0
+interface Vlan1700
+ no ip address 8.8.8.8 255.255.255.0
+end
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+router bgp 1
+ no network 8.8.8.0 mask 255.255.255.0
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+				Steelhead MAC Address: 000e.b6
+  ========================================================================================
+          Mac Address Table
+-------------------------------------------
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+
+  ====================================================
+   Below is the final configuration of the interfaces
+  ====================================================
