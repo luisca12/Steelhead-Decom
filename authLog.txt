@@ -714,3 +714,278 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+2024-04-12 01:12:00,008 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 01:12:00,009 - INFO - User al93633 logged out from the program.
+2024-04-12 01:12:30,238 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:12:30,322 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:12:49,653 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:13:09,917 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:13:25,657 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:13:25,662 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 55, in shCommands
+    shRunOut = sshAccess.send_command(shRun)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:16:56,999 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 01:16:57,000 - INFO - User al93633 logged out from the program.
+2024-04-12 01:17:06,155 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:17:06,249 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:17:13,298 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:17:18,213 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:17:33,841 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:17:33,845 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 55, in shCommands
+    shRunOut = sshAccess.send_command(shRun)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:29:44,338 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:29:44,418 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:29:50,757 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:29:53,090 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:30:08,298 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:30:08,304 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shRunOut = sshAccess.send_command(shRun)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:40:30,986 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:40:31,075 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:40:41,168 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:40:43,586 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:40:59,681 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:40:59,686 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 58, in shCommands
+    shRunOut = sshAccess.send_command(shRun)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:44:04,217 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:44:04,314 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:44:17,470 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:44:34,447 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:44:50,327 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:44:50,332 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:46:22,388 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 01:46:22,389 - INFO - User al93633 logged out from the program.
+2024-04-12 01:46:29,278 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:46:29,410 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:46:38,835 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:46:54,261 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:47:10,826 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:47:10,831 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:49:40,369 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 01:49:40,370 - INFO - User al93633 logged out from the program.
+2024-04-12 01:49:56,370 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:49:56,452 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:50:03,302 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:50:22,034 - INFO - String successfully validated selection number 11, from checkIsDigit function.
+2024-04-12 01:51:16,282 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:51:32,252 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:51:32,260 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+

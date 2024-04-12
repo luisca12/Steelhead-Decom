@@ -42,17 +42,25 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 'username': username,
                 'password': netDevice['password'],
                 'secret': netDevice['secret'],
-                'global_delay_factor': 2,
-                'timeout': 20
+                'global_delay_factor': 3,
+                'timeout': 120,
+                'session_log': 'netmikoLog.txt',
+                'verbose': True,
+                'session_log_file_mode': 'append'
             }
 
             print(f"Connecting to device {validDeviceIP}...")
             with ConnectHandler(**currentNetDevice) as sshAccess:
                 sshAccess.enable()
+                shRunString(validDeviceIP)
+                shHostnameOut = sshAccess.send_command(shHostname)
+                shHostnameOut = shHostnameOut.replace('hostname', '')
+                shHostnameOut = shHostnameOut.strip()
+                authLog.info(f"Hostname successfully found{shHostnameOut}")
 
                 # Will first take a show run
-                shRunString(validDeviceIP)
-                shRunOut = sshAccess.send_command(shRun)
+                authLog.info(f"Automation will run the command: {shRun}")
+                shRunOut = sshAccess.send_command(shRun, expect_string=shHostnameOut)
                 configChangeLog.info(f"User {username} connected to device {validDeviceIP}")
                 configChangeLog.info(f"Automation ran the command \"{shRun}\" into the device {validDeviceIP} successfully")
                 with open(f"{validDeviceIP}_showRun.txt", "a") as file:
@@ -62,9 +70,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
 
 
                 print(f"Starting to take other outputs, saved into {validDeviceIP}_ImplementationPlan.txt")
-                shHostnameOut = sshAccess.send_command(shHostname)
-                shHostnameOut = shHostnameOut.replace('hostname', '')
-                shHostnameOut = shHostnameOut.strip()
+
 
                 shWCCPout = sshAccess.send_command(shWCCP)
                 authLog.info(f"Automation ran the command \"{shWCCP}\" into the device {validDeviceIP} successfully")                

@@ -1,0 +1,838 @@
+
+Attention:
+This is a restricted computer system and is for authorized use only.
+Unauthorized use of this system may result in disciplinary action
+and/or civil and criminal penalties.  Failure to maintain the
+confidentiality of sensitive information may subject the user to
+penalties under applicable law.
+
+By using this system, the user consents to monitoring, inspection,
+and disclosure of all activity for security purposes.
+
+cawc-ncb-core-00>
+cawc-ncb-core-00>terminal width 511
+cawc-ncb-core-00>terminal length 0
+cawc-ncb-core-00>
+cawc-ncb-core-00>
+cawc-ncb-core-00>enable
+password: 
+cawc-ncb-core-00#
+cawc-ncb-core-00#
+cawc-ncb-core-00#show run
+Building configuration...
+
+Current configuration : 74263 bytes
+!
+! Last configuration change at 18:59:35 Zulu Mon Mar 18 2024 by primesrvr2
+! NVRAM config last updated at 20:24:57 Zulu Mon Mar 18 2024 by primesrvr2
+!
+version 15.2
+no service pad
+service tcp-keepalives-in
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service compress-config
+!
+hostname cawc-ncb-core-00
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-vrf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+logging buffered informational
+no logging console
+enable secret 5 $1$VBbV$RhO637QY69sa2t8GsmeSw0
+!
+username adminlocal password 7 132E0230581E0A793F773B
+aaa new-model
+!
+!
+aaa group server tacacs+ TACACS-Servers
+ server name MO-tacacs
+ server name VA-tacacs
+!
+aaa authentication fail-message ^C
+***************************************************************************
+*                                                                         *
+* ACCESS DENIED: Access to this network is restricted to authorized users *
+* only.  The data contained herein is considered to be confidential.      *
+*                                                                         *
+* This network is monitored for security and administrative purposes.     *
+*                                                                         *
+***************************************************************************
+^C
+aaa authentication login default group TACACS-Servers local
+aaa authentication enable default group TACACS-Servers enable
+aaa authorization exec default group TACACS-Servers if-authenticated 
+aaa authorization commands 15 default group TACACS-Servers if-authenticated 
+aaa accounting update newinfo periodic 600
+aaa accounting exec default start-stop group TACACS-Servers
+aaa accounting commands 15 default start-stop group TACACS-Servers
+!
+!
+!
+!
+!
+aaa server radius dynamic-author
+ client 30.128.31.124 server-key 7 00051D120C0806471C72
+ client 30.132.52.156 server-key 7 00051D120C0806471C72
+!
+aaa session-id common
+clock timezone Zulu 0 0
+switch 1 provision ws-c3850-48t
+switch 2 provision ws-c3850-48t
+!
+device-sensor filter-list cdp list cdp-list
+ tlv name device-name
+ tlv name address-type
+ tlv name capabilities-type
+ tlv name platform-type
+ tlv name native-vlan-type
+ tlv number 34
+!
+device-sensor filter-list dhcp list dhcp-list
+ option name host-name
+ option name domain-name
+ option name requested-address
+ option name parameter-request-list
+ option name class-identifier
+ option name client-identifier
+!
+device-sensor filter-list lldp list lldp-list
+ tlv name system-name
+ tlv name system-description
+device-sensor filter-spec dhcp include list dhcp-list
+device-sensor filter-spec lldp include list lldp-list
+device-sensor filter-spec cdp include list cdp-list
+device-sensor accounting
+device-sensor notify all-changes
+!
+!
+!
+!
+!
+no ip source-route
+ip routing
+no ip gratuitous-arps
+!
+ip multicast-routing 
+ip multicast route-limit 1000
+ip domain-list mgmt.wellpoint.com
+ip domain-list wellpoint.com
+ip domain-list mgmt.internal.das
+ip domain-list internal.das
+ip domain-lookup source-interface Loopback0
+ip domain-name mgmt.internal.das
+ip name-server 198.22.86.53
+ip name-server 198.22.86.54
+ip dhcp bootp ignore
+!
+!
+ip wccp 51 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 15005A1A573829772C
+ip wccp 52 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 095E1F1F4A1715410F
+qos queue-softmax-multiplier 600
+vtp domain cawc-ncb
+vtp mode transparent
+udld aggressive
+
+!
+crypto pki trustpoint DNAC-CA
+ enrollment mode ra
+ enrollment terminal
+ usage ssl-client
+ revocation-check crl none
+ source interface Loopback0
+!
+!
+crypto pki certificate chain DNAC-CA
+ certificate ca 7D36C6D69268819044F12F4ED1E33630
+  30820592 3082037A A0030201 0202107D 36C6D692 68819044 F12F4ED1 E3363030 
+  0D06092A 864886F7 0D01010B 0500305A 310B3009 06035504 06130255 53311830 
+  16060355 040A130F 57656C6C 506F696E 742C2049 6E632E31 0C300A06 0355040B 
+  1303504B 49312330 21060355 0403131A 57656C6C 506F696E 7420496E 7465726E 
+  616C2052 6F6F7420 4341301E 170D3134 30323138 31373231 33375A17 0D333430 
+  32313831 37333030 385A305A 310B3009 06035504 06130255 53311830 16060355 
+  040A130F 57656C6C 506F696E 742C2049 6E632E31 0C300A06 0355040B 1303504B 
+  49312330 21060355 0403131A 57656C6C 506F696E 7420496E 7465726E 616C2052 
+  6F6F7420 43413082 0222300D 06092A86 4886F70D 01010105 00038202 0F003082 
+  020A0282 020100B9 1F51B9FC 5911803C 37A01DE4 4C46CD14 0401D7F0 29696316 
+  EE918A6A B1657231 4924C504 657E97BC D985E178 4F29A99F DDBDEBFC 27A6787A 
+  E93DE621 20096D94 3D9D2836 ED5325DF 13D95584 95A06C31 5DEEC67B 4B1DC065 
+  B50CECC1 2EE42C1C CB2326CC 22977E9D 82892E40 65CE1C0A C067A84F 35E821C6 
+  7E804CAF FF7B3511 76B362DB A9604388 76F50792 E7EB0F19 6A173F33 DDDC75FF 
+  3B3BC16B 045293F9 B900160F A7C585CF FE3C76E2 4A0A8B0C D15A0C6F 3934B2F4 
+  BD8C7A9A 2148D713 2F15DB88 B9E766F2 CEC76ECC E76C1EA6 156836D0 2C671BD0 
+  ECFF7EBB 1E1FD789 078CBAC3 4A2A6AEE F9ACBB3E 310A484E 8E0313A6 9F016D71 
+  BB8B4F92 FD880146 0E1B6C63 2E3071EC ADBD9A7A 9AA4D069 2EC5374A CB94D4BA 
+  652FD743 37A12726 45AEF8D6 53AC901C 26D247D0 5BDA160E C3FE3770 EF285A54 
+  F2FDB906 810E13B8 BD4D7262 42F09B51 AEF87C1C B27CC340 2DC94FE4 BCFB2387 
+  8A97493E 08B66EEC 23699B73 7D5CE250 52BAF598 D2A6BAFA 17067943 65DC2480 
+  B76DF77B A6BE453B 4D132CF5 8C874F3F FEB33AD4 63093AB4 714C6F89 8AC1DB06 
+  F3A90ADB 6F86FB1F CFB9B7E4 0C2A567F 451ED4D2 330AA4B8 0B225D01 97B7C809 
+  CF4E889E 5AD2E9A4 3A877152 6E081B80 B5A7A6BF 79C7C019 46CE374B FF24197C 
+  1539872C C5673816 1363AEEA A91B1199 7C8BE11B 3603F9C2 F3904969 115D2847 
+  34C9A09E CB738B02 03010001 A3543052 300E0603 551D0F01 01FF0404 03020186 
+  300F0603 551D1301 01FF0405 30030101 FF301D06 03551D0E 04160414 E45A8306 
+  7AAC5ED8 17A686F2 501CBDDE A24F2A55 30100609 2B060104 01823715 01040302 
+  0100300D 06092A86 4886F70D 01010B05 00038202 01004281 49D10577 5CFD1794 
+  D1610D42 0A13633B A96835A9 6DF9C708 8F500E3C F2502FDD C67F6A16 00721889 
+  1339D23A E214851B 6372A622 A83AECE8 445B0028 9CDD1993 EEF19298 04669C10 
+  05D488D7 B6FCE2BB 573AB243 E90F4F09 76C5D585 13071568 AF5CE454 505B0ACD 
+  94EF6FDA D4320195 8DDD1B94 5013B731 EDDCC056 9AAE674E B2ADD8EA 0D134098 
+  11670F1A AE59B3FD EB46704B 09D9A0A4 C40A1414 84ACF5AE 2EB748EB 7E01BF34 
+  BA021653 D8F0A6C3 AE08979F C61A566B E7ED1065 BB63B79C FFE51428 6AEA52A3 
+  FDDE04F6 8AD8A664 7D9C523F 99A40016 B72BC396 0904DE5C 6EBC4FE3 C1956216 
+  32C17389 BB5C3010 6A8DA6CD 64B2F2E0 97FC4933 F1022BBA 361900EA 175F8E76 
+  20007D85 CFC64BFE 6A435312 2149C7A6 CD0D9DFC 9696071E 5FA5DCF4 9E8A5EDC 
+  BC98E83A CAA6940B DA985419 903D3D27 0C057EC4 2CAE9858 92AFE81E 3145803B 
+  E5CF6A7A 8A4161B9 59389D6D 5203E15A 1DDC7CDE BE96C668 76B448EC AD1EE816 
+  68F7A00C E33D298F 8463E958 0D34890B 19F50FB0 4B5C7B85 C154868E 5CFDC755 
+  20E562C7 C646151C 1EBBBE19 1FCF12D3 DC844CC2 C4A75B7A 54E72EE3 1DD680C6 
+  E43F2FFA D5865FA4 DFA4A6D8 E998D825 53AC30CC D42E8927 6F29C434 9BAD1F2F 
+  5FD3DBBF 35D19156 C09E34EA BA211127 D71A111D F45A0C40 4483F7E0 68B04E3F 
+  7B770487 5D7DE9FD 192DE129 81A33702 C5ACEA4D 5410
+  	quit
+diagnostic bootup level minimal
+!
+spanning-tree mode rapid-pvst
+spanning-tree loopguard default
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+spanning-tree extend system-id
+spanning-tree vlan 1105,1107,1193,1500,1700,1704,2001-2004,2256 priority 4096
+spanning-tree vlan 3001-3004 priority 4096
+hw-switch switch 1 logging onboard message level 3
+hw-switch switch 2 logging onboard message level 3
+!
+redundancy
+ mode sso
+!
+!
+vlan 998
+ name cawc-ncb-native-vlan
+!
+vlan 1001
+ name cawc-ncb-disabled-vlan
+!
+vlan 1105
+ name cawc-ncb-sdw-01
+!
+vlan 1107
+ name cawc-ncb-sdw-02
+!
+vlan 1193
+ name cawc-ncb-centurylink
+!
+vlan 1500
+ name cawc-ncb-net-mgmt
+!
+vlan 1700
+ name cawc-ncb-accl
+!
+vlan 1701
+ name cawc-ncb-nas-av
+!
+vlan 1704
+ name cawc-ncb-collaboration
+!
+vlan 2001
+ name cawc-ncb-data-servers
+!
+vlan 2002
+ name cawc-ncb-data-servers-ilo
+!
+vlan 2003
+ name cawc-ncb-data-facilities
+!
+vlan 2004
+ name cawc-ncb-idf-07-01-data
+!
+vlan 2256
+ name cawc-ncb-wireless
+!
+vlan 3001
+ name cawc-ncb-voice-servers
+!
+vlan 3004
+ name cawc-ncb-idf-07-01-voice
+lldp run
+!
+ip telnet source-interface Loopback0
+ip telnet hidden addresses
+ip ftp source-interface Loopback0
+ip tftp source-interface Loopback0
+!
+class-map match-any mark-dscp-ef
+ match access-group name mark-dscp-ef
+class-map match-any mark-dscp-af41
+ match access-group name mark-dscp-af41
+class-map match-any mark-dscp-af31
+ match access-group name mark-dscp-af31
+class-map match-any mark-dscp-af21
+ match access-group name mark-dscp-af21
+class-map match-any mark-dscp-af11
+ match access-group name mark-dscp-af11
+class-map match-any dscp-ef
+ match ip dscp ef 
+class-map match-any dscp-af41
+ match ip dscp af41  af42 
+class-map match-any dscp-af31
+ match ip dscp af31  af32 
+class-map match-any dscp-af21
+ match ip dscp af21  af22 
+class-map match-any dscp-af11
+ match ip dscp af11  af12 
+class-map match-any non-client-nrt-class
+!
+policy-map port_child_policy
+ class non-client-nrt-class
+  bandwidth remaining ratio 10
+policy-map qos-inbound-20130405
+ class mark-dscp-ef
+  set dscp ef
+ class mark-dscp-af41
+  set dscp af41
+ class mark-dscp-af31
+  set dscp af31
+ class mark-dscp-af21
+  set dscp af21
+ class mark-dscp-af11
+  set dscp af11
+ class class-default
+  set dscp default
+policy-map qos-outbound-20130405
+ class dscp-ef
+  priority level 1
+  police cir percent 20
+  queue-buffers ratio 15
+ class dscp-af41
+  priority level 2
+  police cir percent 20
+  queue-buffers ratio 15
+ class dscp-af31
+  bandwidth remaining percent 20 
+  queue-buffers ratio 15
+ class dscp-af21
+  bandwidth remaining percent 30 
+  queue-buffers ratio 20
+ class dscp-af11
+  bandwidth remaining percent 5 
+  queue-buffers ratio 10
+ class class-default
+  bandwidth remaining percent 45 
+  queue-buffers ratio 25
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description Management Interface
+ ip address 30.215.255.1 255.255.255.255
+ no ip redirects
+ no ip proxy-arp
+ ip mtu 1500
+ ip pim sparse-mode
+!
+interface Loopback1
+ description Local RP Interface
+ ip address 30.254.255.51 255.255.255.255
+ no ip redirects
+ ip mtu 1500
+ ip pim sparse-mode
+!
+interface Loopback254
+ description WCCP 1 Loopback
+ ip address 30.255.254.254 255.255.255.255
+ no ip redirects
+ ip pim sparse-mode
+!
+interface Port-channel1
+ description CAWC-NCB-IDF-07-01 - Po1
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1500,1704,2004,2256,3004
+ switchport mode trunk
+ spanning-tree portfast disable
+ spanning-tree bpduguard disable
+ ip dhcp snooping trust
+!
+interface Port-channel60
+ description CAWCPWPMSC001
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 2001
+ switchport mode trunk
+ no snmp trap link-status
+!
+interface Port-channel61
+ description cawcpapnas002b_ic
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no snmp trap link-status
+!
+interface Port-channel62
+ description cawcpapnas002a_ic
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no snmp trap link-status
+!
+interface Port-channel63
+ description cawcvnas002b
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no snmp trap link-status
+!
+interface Port-channel64
+ description cawcvnas002a
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no snmp trap link-status
+!
+interface Port-channel65
+ description CAWCPWPMCA300 - SCTASK5080455
+ switchport access vlan 1701
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast disable
+ spanning-tree bpduguard disable
+!
+interface Port-channel66
+ description CAWCPWPVDA002
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 2001
+ switchport mode trunk
+ switchport nonegotiate
+ no snmp trap link-status
+!
+interface GigabitEthernet0/0
+ vrf forwarding Mgmt-vrf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/0/1
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ shutdown
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/2
+ description cawc-ncb-accl-03 pri
+ switchport access vlan 1500
+ switchport mode access
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/3
+ description cawc-ncb-accl-03 wan0_0
+ switchport access vlan 1700
+ switchport mode access
+ spanning-tree portfast
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/4
+ description cawc-ncb-accl-04 wan0_1
+ switchport access vlan 1700
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/5
+ description CAWCPWPMCA300_pri 
+ switchport access vlan 1701
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 65 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/6
+ description CAWCPWPMCA300_sec 
+ switchport access vlan 1701
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 65 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/7
+ description CAWCPWPMCA300.rm
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/8
+ description Reserved for vBrick
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ shutdown
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/9
+ description Reserved for vBrick
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ shutdown
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/10
+ description cawc-ncb-wac-01 - port 1
+ switchport access vlan 2001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 2001,2256
+ switchport mode trunk
+ shutdown
+ no snmp trap link-status
+ spanning-tree portfast trunk
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/11
+ description cawc-ncb-wac-02 - port 1
+ switchport access vlan 2001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 2001,2256
+ switchport mode trunk
+ shutdown
+ no snmp trap link-status
+ spanning-tree portfast trunk
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/12
+ description cawcpepucs001_pri
+ switchport access vlan 2001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/13
+ description cawcpepucs001_sec
+ switchport access vlan 2001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/14
+ description cawcpepucs001.rm
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/15
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/16
+ description CAWCPWPVDA002 ILO
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/17
+ description CAWC-07-networkvideorecorder01
+ switchport access vlan 2003
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/18
+ description CAWC-07-accesscontrolpanel01
+ switchport access vlan 2003
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/19
+ description CAWCP50001_Port#1
+ switchport access vlan 1701
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/20
+ description CAWCP50002_Port#1
+ switchport access vlan 2001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/21
+ description CAWCP50001_ILO
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ speed 100
+ duplex full
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/22
+ description CAWCPWPVDA001_Port#1
+ switchport access vlan 2001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/23
+ description CAWCPWPVDA001_ILO
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ speed 100
+ duplex full
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/24
+ description CAWC-NCB-CEM-01
+ switchport access vlan 2003
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/25
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/26
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/27
+ description cawalcalvc3gw109 Primary
+ switchport access vlan 3001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/28
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/29
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/30
+ description cawcvnas002a_e0b (30.154.218.27)
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 64 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/31
+ description cawcpapnas002a_sp.rm_e0M (30.154.198.10,30.154.198.11,30.154.198.13)
+ switchport access vlan 2002
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/32
+ description cawcpapnas002a_ic_e0c (30.154.199.8,30.154.218.29)
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 62 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/33
+ description cawcpapnas002a_ic_e0d (30.154.199.8,30.154.218.29)
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 62 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/34
+ description cawcvnas002a_e0a (30.154.218.27)
+ switchport access vlan 1001
+ switchport trunk native vlan 998
+ switchport trunk allowed vlan 1701,2001
+ switchport mode trunk
+ no logging event link-status
+ no snmp trap link-status
+ channel-protocol lacp
+ channel-group 64 mode active
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/35
+ description CAWC-NCB-SDW-01 - GE0/7
+ switchport access vlan 1193
+ switchport mode access
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/36
+ description CAWC-NCB-SDW-01 - MGMT
+ switchport access vlan 1500
+ switchport mode access
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/37
+ description CAWC-NCB-SDW-01 - ge0/0
+ switchport access vlan 1105
+ switchport mode access
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/38
+ description Not Used
+ switchport access vlan 1001
+ switchport mode access
+ no logging event link-status
+ no snmp trap link-status
+ spanning-tree portfast
+ service-policy input qos-inbound-20130405
+ service-policy output qos-outbound-20130405
+!
+interface GigabitEthernet1/0/39
+ description Not Used
+ switchport access vlan 1001
+ switchport mode exit

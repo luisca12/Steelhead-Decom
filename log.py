@@ -15,11 +15,12 @@ configHandler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(me
 configChangeLog.addHandler(configHandler)
 
 # Configure Logging for Netmiko
-netmikoLogger = logging.getLogger("netmiko")
-netmikoLogger.setLevel(logging.DEBUG)
-netmikoHandler = logging.FileHandler('netmikoLog.txt')
-netmikoHandler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-netmikoLogger.addHandler(netmikoHandler)
+# No longer needed !!!!!
+# netmikoLogger = logging.getLogger("netmiko")
+# netmikoLogger.setLevel(logging.DEBUG)
+# netmikoHandler = logging.FileHandler('netmikoLog.txt')
+# netmikoHandler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+# netmikoLogger.addHandler(netmikoHandler)
 
 # Usage Example
 # authLog.info('This is a message for auth_log.txt')
