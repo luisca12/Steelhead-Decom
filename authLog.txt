@@ -640,3 +640,77 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+2024-04-12 00:38:59,410 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 00:38:59,411 - INFO - User al93633 logged out from the program.
+2024-04-12 00:40:06,562 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 00:40:06,685 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 00:40:22,818 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 00:40:33,059 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 00:40:47,504 - ERROR - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 00:44:06,946 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 00:44:06,948 - INFO - User al93633 logged out from the program.
+2024-04-12 00:51:23,535 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 00:51:23,612 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 00:51:38,478 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 00:51:41,657 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 00:51:57,422 - ERROR - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:02:33,904 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 01:02:33,907 - INFO - User al93633 logged out from the program.
+2024-04-12 01:03:00,210 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 01:03:00,307 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 01:03:11,507 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 01:03:14,709 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 01:03:30,283 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 01:03:30,291 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 54, in shCommands
+    shRunOut = sshAccess.send_command(shRun)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
