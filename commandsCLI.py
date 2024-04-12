@@ -3,8 +3,9 @@ from functions import *
 from log import *
 from strings import *
 from auth import *
-import logging
+
 import os
+import traceback
 
 shRun = "show run"
 shInt = "show run interface "
@@ -166,7 +167,8 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
 
     except Exception as error:
         print(f"An error occurred: {error}")
-        authLog.error(f"User {username} connected to {validDeviceIP} got an error: {error}\n")
+        authLog.debug(f"User {username} connected to {validDeviceIP} got an error: {error}\n")
+        authLog.debug(traceback.format_exc())
         return []
     
     finally:

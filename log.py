@@ -2,7 +2,7 @@ import logging
 
 # Configure logging for authLog.txt
 authLog = logging.getLogger('authLog')
-authLog.setLevel(logging.INFO)
+authLog.setLevel(logging.DEBUG)
 authHangler = logging.FileHandler('authLog.txt')
 authHangler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 authLog.addHandler(authHangler)
