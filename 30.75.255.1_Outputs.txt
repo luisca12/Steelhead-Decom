@@ -1,0 +1,322 @@
+User al93633 connected to device IP 30.75.255.1
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+hostname codn-bro-core-00#show run | i ip wccp
+ip wccp 51 redirect-list wccp-51-redirect-codn-20170223 group-list wccp-devices-20170223 password 7 111B48134400095F00
+ip wccp 52 redirect-list wccp-52-redirect-20170223 group-list wccp-devices-20170223 password 7 00164210574909550B
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+
+hostname codn-bro-core-00#show run | i wccp|interface
+interface Vlan65
+ ip wccp 51 redirect in
+interface Vlan75
+ ip wccp 51 redirect in
+interface Vlan77
+ ip wccp 51 redirect in
+interface Vlan78
+ ip wccp 51 redirect in
+interface Vlan79
+ ip wccp 51 redirect in
+interface Vlan90
+ ip wccp 51 redirect in
+interface Vlan268
+ ip wccp 51 redirect in
+interface Vlan269
+ ip wccp 51 redirect in
+interface Vlan1105
+ ip wccp 52 redirect in
+interface Vlan1106
+ ip wccp 52 redirect in
+interface Vlan1107
+ ip wccp 52 redirect in
+interface Vlan1108
+ ip wccp 52 redirect in
+interface Vlan1704
+ ip wccp 51 redirect in
+interface Vlan2001
+ ip wccp 51 redirect in
+interface Vlan2002
+ ip wccp 51 redirect in
+interface Vlan2003
+ ip wccp 51 redirect in
+interface Vlan2004
+ ip wccp 51 redirect in
+interface Vlan2005
+ ip wccp 51 redirect in
+interface Vlan2006
+ ip wccp 51 redirect in
+interface Vlan2007
+ ip wccp 51 redirect in
+interface Vlan2008
+ ip wccp 51 redirect in
+interface Vlan2009
+ ip wccp 51 redirect in
+interface Vlan2010
+ ip wccp 51 redirect in
+interface Vlan2011
+ ip wccp 51 redirect in
+interface Vlan2012
+ ip wccp 51 redirect in
+interface Vlan2013
+ ip wccp 51 redirect in
+interface Vlan2014
+ ip wccp 51 redirect in
+interface Vlan2015
+ ip wccp 51 redirect in
+interface Vlan2016
+ ip wccp 51 redirect in
+interface Vlan2017
+ ip wccp 51 redirect in
+interface Vlan2018
+ ip wccp 51 redirect in
+interface Vlan2019
+ ip wccp 51 redirect in
+interface Vlan2020
+ ip wccp 51 redirect in
+interface Vlan2021
+ ip wccp 51 redirect in
+interface Vlan2023
+ ip wccp 51 redirect in
+interface Vlan2030
+ ip wccp 51 redirect in
+interface Vlan2031
+ ip wccp 51 redirect in
+interface Vlan2033
+ ip wccp 51 redirect in
+interface Vlan2035
+ ip wccp 51 redirect in
+interface Vlan2036
+ ip wccp 51 redirect in
+interface Vlan2040
+ ip wccp 51 redirect in
+interface Vlan2041
+ ip wccp 51 redirect in
+interface Vlan2042
+ ip wccp 51 redirect in
+interface Vlan2043
+ ip wccp 51 redirect in
+interface Vlan2044
+ ip wccp 51 redirect in
+interface Vlan2045
+ ip wccp 51 redirect in
+interface Vlan2070
+ ip wccp 51 redirect in
+interface Vlan2238
+ ip wccp 51 redirect in
+interface Vlan2256
+ ip wccp 51 redirect in
+interface Vlan3037
+ ip wccp 51 redirect in
+
+hostname codn-bro-core-00#show run interface vlan1700
+interface Vlan1700
+ description CODN-BRO-ACCL
+ ip address 30.72.250.1 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+end
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear {open gear IP}:
+	{steelhead-Hostname}    {steelhead-IP}
+	{steelhead-Hostname}    {steelhead-IP}
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp 51 redirect-list wccp-51-redirect-codn-20170223 group-list wccp-devices-20170223 password 7 111B48134400095F00
+no ip wccp 52 redirect-list wccp-52-redirect-20170223 group-list wccp-devices-20170223 password 7 00164210574909550B
+
+interface Vlan65
+ no ip wccp 51 redirect in
+interface Vlan75
+ no ip wccp 51 redirect in
+interface Vlan77
+ no ip wccp 51 redirect in
+interface Vlan78
+ no ip wccp 51 redirect in
+interface Vlan79
+ no ip wccp 51 redirect in
+interface Vlan90
+ no ip wccp 51 redirect in
+interface Vlan268
+ no ip wccp 51 redirect in
+interface Vlan269
+ no ip wccp 51 redirect in
+interface Vlan1105
+ no ip wccp 52 redirect in
+interface Vlan1106
+ no ip wccp 52 redirect in
+interface Vlan1107
+ no ip wccp 52 redirect in
+interface Vlan1108
+ no ip wccp 52 redirect in
+interface Vlan1704
+ no ip wccp 51 redirect in
+interface Vlan2001
+ no ip wccp 51 redirect in
+interface Vlan2002
+ no ip wccp 51 redirect in
+interface Vlan2003
+ no ip wccp 51 redirect in
+interface Vlan2004
+ no ip wccp 51 redirect in
+interface Vlan2005
+ no ip wccp 51 redirect in
+interface Vlan2006
+ no ip wccp 51 redirect in
+interface Vlan2007
+ no ip wccp 51 redirect in
+interface Vlan2008
+ no ip wccp 51 redirect in
+interface Vlan2009
+ no ip wccp 51 redirect in
+interface Vlan2010
+ no ip wccp 51 redirect in
+interface Vlan2011
+ no ip wccp 51 redirect in
+interface Vlan2012
+ no ip wccp 51 redirect in
+interface Vlan2013
+ no ip wccp 51 redirect in
+interface Vlan2014
+ no ip wccp 51 redirect in
+interface Vlan2015
+ no ip wccp 51 redirect in
+interface Vlan2016
+ no ip wccp 51 redirect in
+interface Vlan2017
+ no ip wccp 51 redirect in
+interface Vlan2018
+ no ip wccp 51 redirect in
+interface Vlan2019
+ no ip wccp 51 redirect in
+interface Vlan2020
+ no ip wccp 51 redirect in
+interface Vlan2021
+ no ip wccp 51 redirect in
+interface Vlan2023
+ no ip wccp 51 redirect in
+interface Vlan2030
+ no ip wccp 51 redirect in
+interface Vlan2031
+ no ip wccp 51 redirect in
+interface Vlan2033
+ no ip wccp 51 redirect in
+interface Vlan2035
+ no ip wccp 51 redirect in
+interface Vlan2036
+ no ip wccp 51 redirect in
+interface Vlan2040
+ no ip wccp 51 redirect in
+interface Vlan2041
+ no ip wccp 51 redirect in
+interface Vlan2042
+ no ip wccp 51 redirect in
+interface Vlan2043
+ no ip wccp 51 redirect in
+interface Vlan2044
+ no ip wccp 51 redirect in
+interface Vlan2045
+ no ip wccp 51 redirect in
+interface Vlan2070
+ no ip wccp 51 redirect in
+interface Vlan2238
+ no ip wccp 51 redirect in
+interface Vlan2256
+ no ip wccp 51 redirect in
+interface Vlan3037
+ no ip wccp 51 redirect in
+
+interface Vlan1700
+ description CODN-BRO-ACCL
+ no ip address 30.72.250.1 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+end
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+router bgp 64828
+ permit 30.72.250.8
+ permit 30.72.250.9
+ permit 30.72.250.10
+ permit 30.72.250.7
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+											   Steelhead MAC Address: 000e.b6
+  ========================================================================================
+----+----+---------------+-------+-----+----------+-----------------------------
+  R  1700 b414.8961.fa80   static   No       -      Router
+
+  ====================================================
+   Below is the final configuration of the interfaces
+  ====================================================
+NOTE: If this is empty, no physical interfaces will be modified.
+

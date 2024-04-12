@@ -1,0 +1,52 @@
+User al93633 connected to device IP 30.215.255.3
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+hostname cawoh-bur-core-00#show run | i ip wccp
+ ip wccp 51 redirect in
+
+hostname cawoh-bur-core-00#show run | i wccp|interface
+interface Vlan1704
+ ip wccp 51 redirect in
+
+hostname cawoh-bur-core-00#show run interface vlan1700
+                                      ^
+% Invalid input detected at '^' marker.
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear {open gear IP}:
+	{steelhead-Hostname}    {steelhead-IP}
+	{steelhead-Hostname}    {steelhead-IP}
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+
+
+interface Vlan1704
+ no ip wccp 51 redirect in
+
+                                      ^
+% Invalid input detected at '^' marker.
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+											   Steelhead MAC Address: 000e.b6
+  ========================================================================================
+
+There are no physical interfaces in VLAN 1700 nor any steelhead device connected
