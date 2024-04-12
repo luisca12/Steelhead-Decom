@@ -37,30 +37,34 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
         for validDeviceIP in validIPs:
             validDeviceIP = validDeviceIP.strip()
             currentNetDevice = {
-                'device_type': 'cisco_ios',
+                'device_type': 'cisco_xe',
                 'ip': validDeviceIP,
                 'username': username,
                 'password': netDevice['password'],
                 'secret': netDevice['secret'],
-                'global_delay_factor': 3,
+                'global_delay_factor': 3.0,
                 'timeout': 300,
                 'session_log': 'netmikoLog.txt',
                 'verbose': True,
-                'session_log_file_mode': 'append'
+                # 'session_log_file_mode': 'append'
             }
 
             print(f"Connecting to device {validDeviceIP}...")
             with ConnectHandler(**currentNetDevice) as sshAccess:
                 sshAccess.enable()
-                shRunString(validDeviceIP)
+                
                 shHostnameOut = sshAccess.send_command(shHostname)
-                shHostnameOut = shHostnameOut.replace('hostname ', '')
-                shHostnameOut = shHostnameOut.strip()
-                authLog.info(f"Hostname successfully found{shHostnameOut}")
+                shHostnameOut1 = shHostnameOut.replace('hostname ', '')
+                shHostnameOut1 = shHostnameOut1.strip()
+                shHostnameOut1 = shHostnameOut1 = "#"
+                print(shHostnameOut1)
+                authLog.info(f"Hostname successfully found{shHostnameOut1}")
 
                 # Will first take a show run
+                sshAccess.enable()
+                shRunString(validDeviceIP)
                 authLog.info(f"Automation will run the command: {shRun}")
-                shRunOut = sshAccess.send_command(shRun, expect_string=shHostnameOut + "#")
+                shRunOut = sshAccess.send_command(shRun)
                 configChangeLog.info(f"User {username} connected to device {validDeviceIP}")
                 configChangeLog.info(f"Automation ran the command \"{shRun}\" into the device {validDeviceIP} successfully")
                 with open(f"{validDeviceIP}_showRun.txt", "a") as file:

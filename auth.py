@@ -47,7 +47,7 @@ def Auth():
 
             for deviceIP in validIPs:
                 netDevice = {
-                    'device_type' : 'cisco_ios',
+                    'device_type' : 'cisco_xe',
                     'ip' : deviceIP,
                     'username' : username,
                     'password' : password,

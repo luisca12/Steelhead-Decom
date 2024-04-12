@@ -989,3 +989,283 @@ You can also look at the Netmiko session_log or debug log for more information.
 
 
 
+2024-04-12 02:04:55,485 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:04:55,564 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:05:06,567 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:05:08,134 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:05:23,790 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:05:23,799 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:07:38,527 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:07:38,604 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:07:46,330 - ERROR - Failed to authenticate - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:07:56,970 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:08:50,172 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:09:05,858 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:09:05,863 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:11:47,021 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:11:47,100 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:12:41,827 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:12:41,928 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:12:47,411 - ERROR - Connection timed out, device not reachable - remote device IP: 30.215.255.1, Username: Tuti2284?*
+
+2024-04-12 02:13:08,421 - ERROR - Failed to authenticate - remote device IP: 30.215.255.1, Username: 30.215.255.1
+2024-04-12 02:13:23,065 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:13:32,630 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:13:48,380 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:13:48,384 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:15:23,996 - ERROR - User  input the following invalid IP: Tuti2284?*
+2024-04-12 02:15:31,086 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:15:31,194 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:15:42,406 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:15:43,932 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:15:59,058 - DEBUG - User al93633 connected to 30.215.255.1 got an error: cannot access local variable 'shHostnameOut1' where it is not associated with a value
+
+2024-04-12 02:15:59,062 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 57, in shCommands
+    shHostnameOut1 = shHostnameOut1.replace('hostname ', '')
+                     ^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'shHostnameOut1' where it is not associated with a value
+
+2024-04-12 02:20:22,233 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:20:22,325 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:20:29,284 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:20:31,777 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:20:47,029 - DEBUG - User al93633 connected to 30.215.255.1 got an error: cannot access local variable 'shHostnameOut1' where it is not associated with a value
+
+2024-04-12 02:20:47,032 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 57, in shCommands
+    shHostnameOut1 = shHostnameOut1.replace('hostname ', '')
+                     ^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'shHostnameOut1' where it is not associated with a value
+
+2024-04-12 02:21:49,117 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:21:49,194 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:21:55,602 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:21:57,936 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:22:13,545 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:22:13,551 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:22:31,032 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 02:22:31,033 - INFO - User al93633 logged out from the program.
+2024-04-12 02:23:01,443 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:23:01,536 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:23:07,384 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:23:08,726 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:23:24,454 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:23:24,460 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:28:50,819 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 02:28:50,820 - INFO - User al93633 logged out from the program.
+2024-04-12 02:28:58,971 - INFO - IP successfully validated 30.215.255.1
+2024-04-12 02:28:59,054 - INFO - Device 30.215.255.1 is reachable on port TCP 22.
+2024-04-12 02:29:05,317 - ERROR - Failed to authenticate - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:29:15,817 - INFO - Successful login - remote device IP: 30.215.255.1, Username: al93633
+2024-04-12 02:29:17,955 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:29:34,486 - DEBUG - User al93633 connected to 30.215.255.1 got an error: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:29:34,490 - DEBUG - Traceback (most recent call last):
+  File "c:\Users\AL93633\OneDrive - Elevance Health\Documents\Steelhead decom\Steelhead-Decom-1\commandsCLI.py", line 56, in shCommands
+    shHostnameOut = sshAccess.send_command(shHostname)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 110, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\utilities.py", line 595, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AL93633\AppData\Local\Programs\Python\Python312\Lib\site-packages\netmiko\base_connection.py", line 1824, in send_command
+    raise ReadTimeout(msg)
+netmiko.exceptions.ReadTimeout: 
+Pattern not detected: 'cawc\\-ncb\\-core\\-00\\#' in output.
+
+Things you might try to fix this:
+1. Explicitly set your pattern using the expect_string argument.
+2. Increase the read_timeout to a larger value.
+
+You can also look at the Netmiko session_log or debug log for more information.
+
+
+
+2024-04-12 02:29:42,726 - INFO - String successfully validated selection number 2, from checkIsDigit function.
+2024-04-12 02:29:42,726 - INFO - User al93633 logged out from the program.
+2024-04-12 02:33:59,596 - INFO - IP successfully validated 30.215.255.3
+2024-04-12 02:33:59,680 - INFO - Device 30.215.255.3 is reachable on port TCP 22.
+2024-04-12 02:34:10,413 - INFO - Successful login - remote device IP: 30.215.255.3, Username: al93633
+2024-04-12 02:34:12,233 - INFO - String successfully validated selection number 1, from checkIsDigit function.
+2024-04-12 02:34:18,226 - INFO - Hostname successfully found#
+2024-04-12 02:34:18,306 - INFO - Automation will run the command: show run
+2024-04-12 02:34:22,320 - INFO - Automation ran the command "show run | i ip wccp" into the device 30.215.255.3 successfully
+2024-04-12 02:34:24,026 - INFO - Automation ran the command "show run | i wccp|interface" into the device 30.215.255.3 successfully
+2024-04-12 02:34:25,046 - INFO - Automation ran the command "show run interface vlan1700" into the device 30.215.255.3 successfully
+2024-04-12 02:34:26,134 - INFO - Automation ran the command "show run interface vlan1700 | inc ip add" into the device 30.215.255.3 successfully
+2024-04-12 02:34:27,242 - INFO - Automation ran the command "show mac add | inc Mac Address T|Vlan|---|1700|000e.b6" into the device 30.215.255.3 successfully
+2024-04-12 02:34:27,243 - ERROR - No IP address found by variable "matchIPv4" from the command show run interface vlan1700 | inc ip add, string found: None
+2024-04-12 02:34:29,011 - INFO - Automation ran the command "show run | inc router bgp | No IP address found" into the device 30.215.255.3 successfully, output of the command:
+
