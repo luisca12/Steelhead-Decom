@@ -56,7 +56,7 @@ def Auth():
 
                 sshAccess = ConnectHandler(**netDevice)
                 sshAccess.enable()
-                print("Login successful! \n")
+                print(f"Login successful! Logged to device {deviceIP} \n")
 
                 authLog.info(f"Successful login - remote device IP: {deviceIP}, Username: {username}")
 

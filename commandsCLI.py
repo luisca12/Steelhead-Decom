@@ -123,6 +123,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                     shWCCPout1 = shWCCPout.replace('ip wccp 51 redirect in', '')
                     shWCCPout1 = shWCCPout1.replace('ip wccp 52 redirect in', '')
                     shWCCPout1 = shWCCPout1.replace('ip', 'no ip')
+                    shWCCPout1 = shWCCPout1.strip()
                     shWCCP1out1 = shWCCP1out.replace('ip', 'no ip')
                     shWCCP2out1 = shWCCP2out.replace('ip address', 'no ip address')
                     file.write(f"{shWCCPout1}\n\n")
@@ -137,7 +138,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                     file.write("no interface 1700\n\n")
                     file.write('  ========================================================================================\n')
                     file.write("   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700\n")
-                    file.write('\t\t\t\t\t\t\tSteelhead MAC Address: 000e.b6\n')
+                    file.write('\t\t\t\t\t\t\t\t\t\t\t   Steelhead MAC Address: 000e.b6\n')
                     file.write('  ========================================================================================\n')
                     if "1700" not in shWCCP4out and "000e.b6" not in shWCCP4out:
                         file.write("\nThere are no physical interfaces in VLAN 1700 nor any steelhead device connected")
