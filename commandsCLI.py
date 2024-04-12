@@ -40,7 +40,8 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 'ip': validDeviceIP,
                 'username': username,
                 'password': netDevice['password'],
-                'secret': netDevice['secret']
+                'secret': netDevice['secret'],
+                'global_delay_factor': 2
             }
 
             print(f"Connecting to device {validDeviceIP}...")
