@@ -56,7 +56,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 shHostnameOut = sshAccess.send_command(shHostname)
                 shHostnameOut1 = shHostnameOut.replace('hostname ', '')
                 shHostnameOut1 = shHostnameOut1.strip()
-                shHostnameOut1 = shHostnameOut1 = "#"
+                shHostnameOut1 = shHostnameOut1 + "#"
                 print(shHostnameOut1)
                 authLog.info(f"Hostname successfully found{shHostnameOut1}")
 
