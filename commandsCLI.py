@@ -57,7 +57,7 @@ def shCommands(validIPs, username, netDevice, printNotConnect=True):
                 shHostnameOut1 = shHostnameOut.replace('hostname ', '')
                 shHostnameOut1 = shHostnameOut1.strip()
                 shHostnameOut1 = shHostnameOut1 + "#"
-                print(shHostnameOut1)
+                # print(shHostnameOut1) #Only for testing
                 authLog.info(f"Hostname successfully found{shHostnameOut1}")
 
                 # Will first take a show run
