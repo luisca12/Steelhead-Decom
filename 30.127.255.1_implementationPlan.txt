@@ -1,0 +1,50 @@
+User al93633 connected to device IP 30.127.255.1
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+vavab-ame-core-00#show run | i ip wccp
+! EMPTY
+
+vavab-ame-core-00#show run | i wccp|interface
+
+
+vavab-ame-core-00#show run interface vlan1700
+                                      ^
+% Invalid input detected at '^' marker.
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear:
+Open Gear:
+	vavab-ame-con-01.mgmt.internal.das	30.96.129.66	
+	vavab-ame-con-02.mgmt.internal.das	30.96.129.67	
+	vavab-ame-con-03			30.96.129.68	
+Steelheads:
+	vavab-ame-accl-03.mgmt.internal.das   	30.96.129.113    
+	vavab-ame-accl-04.mgmt.internal.das   	30.96.129.114    
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp source-interface Loopback0
+
+no ip access-list standard wccp-devices-20170223
+no ip access-list extended wccp-redirect-20170223
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+			Steelhead MAC Address: 000e.b6
+  ========================================================================================
+There are no physical interfaces in VLAN 1700 nor any steelhead device connected

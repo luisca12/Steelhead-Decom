@@ -1,0 +1,96 @@
+User al93633 connected to device IP 30.155.255.80
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+cavi-wmk-core-01#show run | i ip wccp
+ip wccp 51 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 095E1F1F4A1715410F
+ip wccp 52 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 120B540141190E572E
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+
+cavi-wmk-core-01#show run | i wccp|interface
+interface Vlan1105
+ ip wccp 52 redirect in
+interface Vlan1107
+ ip wccp 52 redirect in
+interface Vlan2075
+ ip wccp 51 redirect in
+interface Vlan2208
+ ip wccp 51 redirect in
+interface Vlan2209
+ ip wccp 51 redirect in
+interface Vlan2256
+ ip wccp 51 redirect in
+
+cavi-wmk-core-01#show run interface vlan1700
+interface Vlan1700
+ description cavi-wmk-accl
+ ip address 30.154.125.129 255.255.255.248
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ shutdown
+end
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear cavi-wmk-con-20 30.154.215.119:
+	cavi-wmk-accl-03.mgmt.internal.das    	30.154.215.113   
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp 51 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 095E1F1F4A1715410F
+no ip wccp 52 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 120B540141190E572E
+
+no ip wccp source-interface Loopback0
+
+no ip access-list standard wccp-devices-20170223
+no ip access-list extended wccp-redirect-20170223
+
+interface Vlan1105
+ no ip wccp 52 redirect in
+interface Vlan1107
+ no ip wccp 52 redirect in
+interface Vlan2075
+ no ip wccp 51 redirect in
+interface Vlan2208
+ no ip wccp 51 redirect in
+interface Vlan2209
+ no ip wccp 51 redirect in
+interface Vlan2256
+ no ip wccp 51 redirect in
+
+interface Vlan1700
+ description cavi-wmk-accl
+ no ip address 30.154.125.129 255.255.255.248
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ shutdown
+end
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+router bgp 64850
+ no network 30.154.125.128 mask 255.255.255.248
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+			Steelhead MAC Address: 000e.b6
+  ========================================================================================
+There are no physical interfaces in VLAN 1700 nor any steelhead device connected

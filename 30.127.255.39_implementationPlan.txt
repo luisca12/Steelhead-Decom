@@ -1,0 +1,232 @@
+User al93633 connected to device IP 30.127.255.39
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+varoa-sje-core-01#show run | i ip wccp
+ip wccp 51 redirect-list wccp-51-redirect-varoa-20170223 group-list wccp-devices-20170223 password 7 03160A1D551D231F4A
+ip wccp 52 redirect-list wccp-52-redirect-20170223 group-list wccp-devices-20170223 password 7 0214554D58140D7248
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+
+varoa-sje-core-01#show run | i wccp|interface
+interface Vlan12
+ ip wccp 51 redirect in
+interface Vlan18
+ ip wccp 51 redirect in
+interface Vlan24
+ ip wccp 51 redirect in
+interface Vlan28
+ ip wccp 51 redirect in
+interface Vlan1105
+ ip wccp 52 redirect in
+interface Vlan1107
+ ip wccp 52 redirect in
+interface Vlan1704
+ ip wccp 51 redirect in
+interface Vlan2004
+ ip wccp 51 redirect in
+interface Vlan2005
+ ip wccp 51 redirect in
+interface Vlan2006
+ ip wccp 51 redirect in
+interface Vlan2008
+ ip wccp 51 redirect in
+interface Vlan2010
+ ip wccp 51 redirect in
+interface Vlan2012
+ ip wccp 51 redirect in
+interface Vlan2014
+ ip wccp 51 redirect in
+interface Vlan2016
+ ip wccp 51 redirect in
+interface Vlan2018
+ ip wccp 51 redirect in
+interface Vlan2020
+ ip wccp 51 redirect in
+interface Vlan2256
+ ip wccp 51 redirect in
+
+varoa-sje-core-01#show run interface vlan1700
+interface Vlan1700
+ description varoa-sje-accl
+ bandwidth 1000000
+ ip address 30.122.0.2 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+ standby 2 ip 30.122.0.1
+ standby 2 priority 120
+ standby 2 preempt
+ standby 2 authentication w3lp01nt
+end
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear varoa-sje-con-20 30.122.1.119:
+	varoa-sje-accl-03.mgmt.internal.das   	30.122.1.113     
+	varoa-sje-accl-04.mgmt.internal.das   	30.122.1.114     
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp 51 redirect-list wccp-51-redirect-varoa-20170223 group-list wccp-devices-20170223 password 7 03160A1D551D231F4A
+no ip wccp 52 redirect-list wccp-52-redirect-20170223 group-list wccp-devices-20170223 password 7 0214554D58140D7248
+
+no ip access-list standard wccp-devices-20170223
+no ip access-list extended wccp-redirect-20170223
+
+interface Vlan12
+ no ip wccp 51 redirect in
+interface Vlan18
+ no ip wccp 51 redirect in
+interface Vlan24
+ no ip wccp 51 redirect in
+interface Vlan28
+ no ip wccp 51 redirect in
+interface Vlan1105
+ no ip wccp 52 redirect in
+interface Vlan1107
+ no ip wccp 52 redirect in
+interface Vlan1704
+ no ip wccp 51 redirect in
+interface Vlan2004
+ no ip wccp 51 redirect in
+interface Vlan2005
+ no ip wccp 51 redirect in
+interface Vlan2006
+ no ip wccp 51 redirect in
+interface Vlan2008
+ no ip wccp 51 redirect in
+interface Vlan2010
+ no ip wccp 51 redirect in
+interface Vlan2012
+ no ip wccp 51 redirect in
+interface Vlan2014
+ no ip wccp 51 redirect in
+interface Vlan2016
+ no ip wccp 51 redirect in
+interface Vlan2018
+ no ip wccp 51 redirect in
+interface Vlan2020
+ no ip wccp 51 redirect in
+interface Vlan2256
+ no ip wccp 51 redirect in
+
+interface Vlan1700
+ description varoa-sje-accl
+ bandwidth 1000000
+ no ip address 30.122.0.2 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+ standby 2 ip 30.122.0.1
+ standby 2 priority 120
+ standby 2 preempt
+ standby 2 authentication w3lp01nt
+end
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+router bgp 64834
+! No changes to make here
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+			Steelhead MAC Address: 000e.b6
+  ========================================================================================
+------+----------------+--------+-----+----------+--------------------------
+* 1700  108c.cf56.1d80   dynamic  Yes         10   Gi2/37
+*  ---  108c.cf56.1e00    static  No           -   Router
+* 1700  108c.cf56.1e00    static  No           -   Router
+*  ---  0000.0000.aaaa    static  No           -   Switch
+*  ---  0000.0000.0000    static  No           -   Router
+* 1700  0000.0c07.ac02   dynamic  Yes          0   Gi2/37
+
+interface GigabitEthernet2/37
+ description Temp PortChannel to Varoa-sje-core-02
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 28-30,912,1700,2005,2256
+ switchport mode trunk
+ logging event link-status
+ speed 1000
+ duplex full
+ wrr-queue bandwidth 50 20 10 
+ priority-queue queue-limit 20 
+ wrr-queue queue-limit 40 20 20 
+ wrr-queue random-detect min-threshold 1 40 60 80 100 100 100 100 100 
+ wrr-queue random-detect min-threshold 2 40 60 80 100 100 100 100 100 
+ wrr-queue random-detect min-threshold 3 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 1 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 2 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 3 60 80 100 100 100 100 100 100 
+ wrr-queue cos-map 1 1 1 
+ wrr-queue cos-map 1 2 0 
+ wrr-queue cos-map 2 2 2 
+ wrr-queue cos-map 2 3 4 
+ wrr-queue cos-map 3 2 3 
+ wrr-queue cos-map 3 3 6 7 
+ mls qos trust dscp
+ spanning-tree portfast disable
+end
+
+interface GigabitEthernet2/37
+ description Temp PortChannel to Varoa-sje-core-02
+ switchport
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 28-30,912,1700,2005,2256
+ switchport mode trunk
+ logging event link-status
+ speed 1000
+ duplex full
+ wrr-queue bandwidth 50 20 10 
+ priority-queue queue-limit 20 
+ wrr-queue queue-limit 40 20 20 
+ wrr-queue random-detect min-threshold 1 40 60 80 100 100 100 100 100 
+ wrr-queue random-detect min-threshold 2 40 60 80 100 100 100 100 100 
+ wrr-queue random-detect min-threshold 3 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 1 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 2 60 80 100 100 100 100 100 100 
+ wrr-queue random-detect max-threshold 3 60 80 100 100 100 100 100 100 
+ wrr-queue cos-map 1 1 1 
+ wrr-queue cos-map 1 2 0 
+ wrr-queue cos-map 2 2 2 
+ wrr-queue cos-map 2 3 4 
+ wrr-queue cos-map 3 2 3 
+ wrr-queue cos-map 3 3 6 7 
+ mls qos trust dscp
+ spanning-tree portfast disable
+end
+
+  ====================================================
+   Below is the final configuration of the interfaces
+  ====================================================
+NOTE: If this is empty, no physical interfaces will be modified.

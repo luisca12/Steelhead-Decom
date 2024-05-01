@@ -1,0 +1,214 @@
+User al93633 connected to device IP 30.67.255.10
+
+  =======================================
+   Below we check for WCCP configuration
+  =======================================
+ctwal-lei-core-00#show run | i ip wccp
+ip wccp 51 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 120B540141190E572E
+ip wccp 52 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 03160A1D551D231F4A
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 52 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+ ip wccp 51 redirect in
+
+ctwal-lei-core-00#show run | i wccp|interface
+interface Vlan1105
+ ip wccp 52 redirect in
+interface Vlan1106
+ ip wccp 52 redirect in
+interface Vlan1107
+ ip wccp 52 redirect in
+interface Vlan1108
+ ip wccp 52 redirect in
+interface Vlan1704
+ ip wccp 51 redirect in
+interface Vlan2002
+ ip wccp 51 redirect in
+interface Vlan2003
+ ip wccp 51 redirect in
+interface Vlan2004
+ ip wccp 51 redirect in
+interface Vlan2005
+ ip wccp 51 redirect in
+interface Vlan2006
+ ip wccp 51 redirect in
+interface Vlan2007
+ ip wccp 51 redirect in
+interface Vlan2012
+ ip wccp 51 redirect in
+interface Vlan2015
+ ip wccp 51 redirect in
+interface Vlan2016
+ ip wccp 51 redirect in
+interface Vlan2018
+ ip wccp 51 redirect in
+interface Vlan2019
+ ip wccp 51 redirect in
+interface Vlan2021
+ ip wccp 51 redirect in
+interface Vlan2022
+ ip wccp 51 redirect in
+interface Vlan2023
+ ip wccp 51 redirect in
+interface Vlan2024
+ ip wccp 51 redirect in
+interface Vlan2030
+ ip wccp 51 redirect in
+interface Vlan2031
+ ip wccp 51 redirect in
+interface Vlan2032
+ ip wccp 51 redirect in
+interface Vlan2033
+ ip wccp 51 redirect in
+interface Vlan2256
+ ip wccp 51 redirect in
+interface Vlan3006
+ ip wccp 51 redirect in
+interface Vlan3023
+ ip wccp 51 redirect in
+
+ctwal-lei-core-00#show run interface vlan1700
+interface Vlan1700
+ description ctwal-lei-accl
+ ip address 30.64.0.129 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+ service-policy input qos-inbound-20130405
+end
+
+	########################## Implementation Plan #########################
+Try to SSH to the steelhead and if it fails try to connect through the open gear ctwal-lei-con-20 30.64.0.119:
+	ctwal-lei-accl-03.mgmt.internal.das   	30.64.0.113      
+	ctwal-lei-accl-04.mgmt.internal.das   	30.64.0.114      
+
+Once in the CLI go to enable and run this command:
+	reset factory reload
+
+  ==================================================================
+   Make sure the ACCL are factory default before starting this part
+  ==================================================================
+SSH to the Core SW: 
+
+no ip wccp 51 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 120B540141190E572E
+no ip wccp 52 redirect-list wccp-redirect-20170223 group-list wccp-devices-20170223 password 7 03160A1D551D231F4A
+
+no ip wccp source-interface Loopback0
+
+no ip access-list standard wccp-devices-20170223
+no ip access-list extended wccp-redirect-20170223
+
+interface Vlan1105
+ no ip wccp 52 redirect in
+interface Vlan1106
+ no ip wccp 52 redirect in
+interface Vlan1107
+ no ip wccp 52 redirect in
+interface Vlan1108
+ no ip wccp 52 redirect in
+interface Vlan1704
+ no ip wccp 51 redirect in
+interface Vlan2002
+ no ip wccp 51 redirect in
+interface Vlan2003
+ no ip wccp 51 redirect in
+interface Vlan2004
+ no ip wccp 51 redirect in
+interface Vlan2005
+ no ip wccp 51 redirect in
+interface Vlan2006
+ no ip wccp 51 redirect in
+interface Vlan2007
+ no ip wccp 51 redirect in
+interface Vlan2012
+ no ip wccp 51 redirect in
+interface Vlan2015
+ no ip wccp 51 redirect in
+interface Vlan2016
+ no ip wccp 51 redirect in
+interface Vlan2018
+ no ip wccp 51 redirect in
+interface Vlan2019
+ no ip wccp 51 redirect in
+interface Vlan2021
+ no ip wccp 51 redirect in
+interface Vlan2022
+ no ip wccp 51 redirect in
+interface Vlan2023
+ no ip wccp 51 redirect in
+interface Vlan2024
+ no ip wccp 51 redirect in
+interface Vlan2030
+ no ip wccp 51 redirect in
+interface Vlan2031
+ no ip wccp 51 redirect in
+interface Vlan2032
+ no ip wccp 51 redirect in
+interface Vlan2033
+ no ip wccp 51 redirect in
+interface Vlan2256
+ no ip wccp 51 redirect in
+interface Vlan3006
+ no ip wccp 51 redirect in
+interface Vlan3023
+ no ip wccp 51 redirect in
+
+interface Vlan1700
+ description ctwal-lei-accl
+ no ip address 30.64.0.129 255.255.255.240
+ no ip redirects
+ no ip proxy-arp
+ ip pim sparse-mode
+ logging event link-status
+ service-policy input qos-inbound-20130405
+end
+
+  =======================================================================================
+   Upon removing WCCP from the SVIs remove the VLAN, SVI and network on BGP for VLAN1700
+  =======================================================================================
+router bgp 64839
+ no network 30.64.0.128 mask 255.255.255.240
+
+no vlan 1700
+
+no interface 1700
+
+  ========================================================================================
+   Below are the Interfaces where the steelheads are connected and interfaces in VLAN1700
+			 Steelhead MAC Address: 000e.b6
+  ========================================================================================
+          Mac Address Table
+-------------------------------------------
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+1700    00b1.e35a.0fd4    STATIC      Vl1700 
+
+  ====================================================
+   Below is the final configuration of the interfaces
+  ====================================================
+NOTE: If this is empty, no physical interfaces will be modified.
+
